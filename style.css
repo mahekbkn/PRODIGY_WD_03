@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(to right, #ff9a9e, #fad0c4, #fbc2eb, #a1c4fd, #c2ffd8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 420px;
+  width: 95%;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #ff4081;
+  margin-bottom: 10px;
+}
+
+.mode-toggle button {
+  margin: 5px;
+  padding: 8px 14px;
+  border: none;
+  background: #6200ea;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.mode-toggle button:hover {
+  background: #3700b3;
+}
+
+#scoreboard p {
+  margin: 5px;
+  font-size: 14px;
+  color: #333;
+}
+
+#game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 12px;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #333;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.cell:hover {
+  transform: scale(1.05);
+}
+
+/* Pastel Colors */
+.cell:nth-child(1) { background: #FFB3BA; }
+.cell:nth-child(2) { background: #FFD8B1; }
+.cell:nth-child(3) { background: #FFFFBA; }
+.cell:nth-child(4) { background: #BFFCC6; }
+.cell:nth-child(5) { background: #B2F7EF; }
+.cell:nth-child(6) { background: #B3CDE0; }
+.cell:nth-child(7) { background: #CBAACB; }
+.cell:nth-child(8) { background: #FADADD; }
+.cell:nth-child(9) { background: #F5E1A4; }
+
+.cell.win {
+  border: 3px solid white;
+  box-shadow: 0 0 15px #fff;
+}
+
+#restartBtn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #7b2ff7;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#restartBtn:hover {
+  background: #6200ea;
+}
+
+#statusText {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+#popupMessage {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ff4081;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1.4rem;
+  box-shadow: 0 4px 15px rgba(255, 64, 129, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  z-index: 1000;
+}
+
+.popup-show {
+  opacity: 1;
+  pointer-events: auto;
+}
